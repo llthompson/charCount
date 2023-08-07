@@ -1,18 +1,19 @@
-let input = 'h3!!o';
+let input = 'h3!!  oOO';
 
 const charCount = (input) => {
-    // let count = 0;
+    const justLetters = input.toLowerCase().replace(/[^a-z]/g, '');
 
-    const justLetters = input.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()1234567890]/g,'');
-    // input.for (let i = 0; i < input.length; i++) {
-    //     if (input.charAt(i) === letter) {
-    //         count += 1;
-    //     }
-        
-    // }
-    
-    
-    return justLetters;
+    const theCount = {};
+
+    for (let letter of justLetters) {
+        if (theCount[letter]) {
+            theCount[letter]++;
+        } else {
+            theCount[letter] = 1;
+        }
+    }
+
+    return theCount;
 }
 
 console.log(input)
